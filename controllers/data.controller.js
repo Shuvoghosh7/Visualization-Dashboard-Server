@@ -18,7 +18,7 @@ module.exports.getAllData = async (req, res, next) => {
     try {
         const db = getDb();
         const query = {};
-        const cursor = db.collection("chartData").find(query);
+        const cursor =await db.collection("chartData").find(query);
         const services = await cursor.toArray();
         res.status(200).json({    
             success: true,
@@ -29,3 +29,4 @@ module.exports.getAllData = async (req, res, next) => {
         next(error);
     }
 }
+
